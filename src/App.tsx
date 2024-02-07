@@ -1,19 +1,20 @@
 import bearCuteLove from './assets/cute-love.gif';
 import kissingBear from './assets/bear-kisses.gif';
-import './App.css';
+// import './App.css';
 
 function App() {
   return (
-    <div>
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
-      {/* <div>
-        <img src={bearCuteLove} className='logo react' alt='React logo' />
-        <img src={kissingBear} className='logo' alt='Vite logo' />
+    <section className='child:p-4 h-screen bg-red-50 flex items-center justify-center flex-col text-center text-3xl'>
+      <div>
+        <img src={bearCuteLove} alt='React logo' />
+        <img className='hidden' src={kissingBear} alt='Vite logo' />
       </div>
-      <h1>Will you be my valentine?</h1>
-      <button>Yes</button>
-      <button>No</button> */}
-    </div>
+      <h1>Will you be my Valentine?</h1>
+      <div className='w-1/4 flex justify-between'>
+        <button>Yes</button>
+        <button>No</button>
+      </div>
+    </section>
   );
 }
 
