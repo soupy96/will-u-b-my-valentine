@@ -10,7 +10,7 @@
     margin-top: 10px;
   }
 
-  .heart::before,
+  /* .heart::before,
   .heart::after {
     content: '';
     position: absolute;
@@ -31,12 +31,16 @@
     left: 0;
     transform: rotate(45deg);
     transform-origin: 100% 100%;
-  }
+  } */
 
   .heart p {
     color: #ffffff;
-    position: relative;
-    top: -15%;
-    z-index: 1;
+    /* position: relative; */
+    /* top: -15%; */
+    /* z-index: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
   }
 }

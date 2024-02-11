@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import bearCuteLove from './assets/cute-love.gif';
 import kissingBear from './assets/bear-kisses.gif';
+import heartPNG from './assets/heart.png';
 
 function App() {
   let [yes, setYes] = useState(false);
   let [noNum, setNoNum] = useState(0);
+  let [heartWidth, setheartWidth] = useState(100);
+  let [heartHeight, setheartHeight] = useState(90);
 
   const noArray = [
     'No',
@@ -30,7 +33,13 @@ function App() {
       let test = noNum;
       test++;
       setNoNum(test);
-      console.log(noNum);
+
+      let heartWU = heartWidth + 10;
+      let heartHU = heartHeight + 10;
+      setheartWidth(heartWU);
+      setheartHeight(heartHU);
+
+      console.log(heartWU, heartHU);
     } else if (noNum > 14) {
       setNoNum(1);
     }
@@ -53,13 +62,27 @@ function App() {
         {!yes ? <h1>Will you be my Valentine?</h1> : <h1>Luv U 🥰</h1>}
         {!yes ? (
           <div className='w-full flex justify-around'>
-            <button className='heart' onClick={yesButt}>
+            <div
+              className='heart'
+              onClick={yesButt}
+              style={{
+                backgroundImage: `url(${heartPNG})`,
+                width: heartWidth,
+                height: heartHeight,
+              }}
+            >
               <p>Yes</p>
-            </button>
+            </div>
             {noNum === 0 && !yes ? (
-              <button onClick={noButt} className='heart'>
+              <div
+                className='heart'
+                onClick={noButt}
+                style={{
+                  backgroundImage: `url(${heartPNG})`,
+                }}
+              >
                 <p>No</p>
-              </button>
+              </div>
             ) : (
               <button className='bg-gray-400 px-4 pt-0' onClick={noButt}>
                 {noArray[noNum]}
