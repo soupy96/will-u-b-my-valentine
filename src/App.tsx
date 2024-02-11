@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import bearCuteLove from './assets/cute-love.gif';
 import kissingBear from './assets/bear-kisses.gif';
-import heartPNG from './assets/heart.png';
+import heartPNG from './assets/heart-og.png';
+import heartYes from './assets/heart-yes.png';
 
 function App() {
   let [yes, setYes] = useState(false);
@@ -30,16 +31,14 @@ function App() {
 
   const noButt = () => {
     if (noNum <= 14) {
-      let test = noNum;
-      test++;
-      setNoNum(test);
+      let noIncrement = noNum;
+      noIncrement++;
+      setNoNum(noIncrement);
 
-      let heartWU = heartWidth + 10;
-      let heartHU = heartHeight + 10;
+      let heartWU = heartWidth + 30;
+      let heartHU = heartHeight + 30;
       setheartWidth(heartWU);
       setheartHeight(heartHU);
-
-      console.log(heartWU, heartHU);
     } else if (noNum > 14) {
       setNoNum(1);
     }
@@ -61,21 +60,19 @@ function App() {
         </div>
         {!yes ? <h1>Will you be my Valentine?</h1> : <h1>Luv U 🥰</h1>}
         {!yes ? (
-          <div className='w-full flex justify-around'>
+          <div className='w-full flex justify-around items-center'>
             <div
-              className='heart'
+              className='cursor-pointer bg-contain bg-no-repeat'
               onClick={yesButt}
               style={{
-                backgroundImage: `url(${heartPNG})`,
+                backgroundImage: `url(${heartYes})`,
                 width: heartWidth,
                 height: heartHeight,
               }}
-            >
-              <p>Yes</p>
-            </div>
+            ></div>
             {noNum === 0 && !yes ? (
               <div
-                className='heart'
+                className='heart cursor-pointer select-none'
                 onClick={noButt}
                 style={{
                   backgroundImage: `url(${heartPNG})`,
@@ -84,9 +81,12 @@ function App() {
                 <p>No</p>
               </div>
             ) : (
-              <button className='bg-gray-400 px-4 pt-0' onClick={noButt}>
+              <div
+                className='bg-gray-400 px-4 flex items-center justify-center cursor-pointer select-none h-20'
+                onClick={noButt}
+              >
                 {noArray[noNum]}
-              </button>
+              </div>
             )}
           </div>
         ) : (
